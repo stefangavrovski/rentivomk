@@ -5,6 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi;
 using RentivoMK.Data;
 using RentivoMK.Interfaces;
+using RentivoMK.Middleware;
 using RentivoMK.Repositories;
 using RentivoMK.Services;
 
@@ -86,6 +87,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseHttpsRedirection();
 app.UseAuthentication();
